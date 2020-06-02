@@ -1,5 +1,4 @@
-import React, { useContext } from 'react';
-import { SmurfContext } from '../contexts/context';
+import React from 'react';
 
 const SmurfCard = props => {
     return (
@@ -9,4 +8,4 @@ const SmurfCard = props => {
     )
 }
 
-export default SmurfCard;
+export default SmurfCard
