@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import "./App.css";
 import axios from 'axios';
 import Village from '../components/Village';
+import NewSmurf from '../components/NewSmurf';
 
 // context
 import { SmurfContext } from '../contexts/context';
@@ -11,6 +12,7 @@ import { SmurfContext } from '../contexts/context';
 function App () {
  
   const [smurfs, setSmurf] = useState([]);
+
 
   useEffect(() => {
     axios
@@ -23,15 +25,24 @@ function App () {
       console.error("error", err);
     })
   }, []);
+
+  const newSmurf = smurf => {
+    axios
+      .post("http://localhost:3333/smurfs", smurf)
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        console.error(err);
+      });
+  };
   
   return (
     <div className="App">
-      <h1>SMURFS! 2.0 W/ Redux</h1>
-      <div>Welcome to your state management version of Smurfs!</div>
-      <div>Start inside of your `src/index.js` file!</div>
-      <div>Have fun!</div>
+      <h1>Welcome to Le Pays Maudit</h1>
       <SmurfContext.Provider value = {smurfs}>
         <Village/>
+        <NewSmurf newSmurf = {newSmurf} />
       </SmurfContext.Provider>
     </div>
   
