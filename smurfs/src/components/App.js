@@ -41,8 +41,9 @@ function App () {
     <div className="App">
       <h1>Welcome to Le Pays Maudit</h1>
       <SmurfContext.Provider value = {smurfs}>
-        <Village/>
-        <NewSmurf newSmurf = {newSmurf} />
+      <NewSmurf newSmurf = {newSmurf} />
+      <Village/>
+       
       </SmurfContext.Provider>
     </div>
   

@@ -32,6 +32,7 @@ export default function NewSmurf(props) {
 
     return (
         <div>
+            <h2>Smurf Yourself Below and Join</h2>
             <input 
             type = "text"
             name= "name"
@@ -54,7 +55,7 @@ export default function NewSmurf(props) {
             placeholder = "Enter Smurf height"
             />
             <button className ="button" onClick={handleSubmit}>
-                Add to Le Pays Maudit
+                Smurf Me!
             </button>
 
         </div>
