@@ -1,12 +1,27 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./App.css";
+import axios from 'axios';
 
-
+// context
+import { SmurfContext } from '../contexts/context';
 
 
 
 function App () {
  
+  const [smurf, setSmurf] = useState({});
+
+  useEffect(() => {
+    axios
+    .get("http://localhost:3333/smurfs")
+    .then(res => {
+      console.log(res.data);
+    })
+    .catch(err => {
+      console.error("error", err);
+    })
+  })
+  
   return (
     <div className="App">
       <h1>SMURFS! 2.0 W/ Redux</h1>
